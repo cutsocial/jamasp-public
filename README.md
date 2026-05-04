@@ -13,6 +13,7 @@ This repository contains analysis code, SQL queries, and anonymized data support
 
 ```
 jamasp-public/
+├── paper/            # Paper in prep describing rationale for Jamasp and feasibility study
 ├── queries/          # BigQuery SQL queries used in the paper
 ├── data/             # Anonymized aggregate data (CSV)
 ├── schema/           # BigQuery table schema descriptions
@@ -20,8 +21,12 @@ jamasp-public/
 ```
 
 ---
-## Read paper
-[Read the Paper](https://docs.google.com/document/d/1Z13xEMe-RGqervhmDNtwkO6dxHBnf07L7Zi_4ncNEWQ/edit?usp=sharing)
+## Paper
+
+The manuscript describes the design and implementation of Jamasp, a platform for collecting wearable data from existing device owners via crowdsourcing. It reports results from a pilot study assessing the feasibility of participant recruitment, device linking, and automated data retrieval and storage.
+
+[Read Paper](https://docs.google.com/document/d/1Z13xEMe-RGqervhmDNtwkO6dxHBnf07L7Zi_4ncNEWQ/edit?usp=sharing)
+
 ---
 
 ## Queries
