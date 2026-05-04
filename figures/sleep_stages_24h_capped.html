@@ -1,0 +1,57 @@
+
+<div style="background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:24px 24px 16px; font-family:'Google Sans',Arial,sans-serif;">
+  <div style="font-size:16px; color:#5f6368; margin-bottom:4px;">Mean sleep stage duration by hour of day</div>
+  <div style="font-size:13px; color:#9aa0a6; margin-bottom:16px;">N = 37 participants with valid sleep data · Feb 25 – Apr 30, 2025 · Bar height = total sleep time</div>
+  <div style="position:relative; width:100%; height:340px;">
+    <canvas id="sleepChart" role="img" aria-label="Stacked bar chart of mean sleep stage duration by hour of day for 37 participants. Y-axis capped at 60 minutes. Sleep peaks between midnight and 6am. Deep sleep dominates early night, REM increases toward morning.">Bar height represents total sleep time per hour, capped at 60 minutes. Sleep peaks midnight to 6am.</canvas>
+  </div>
+  <div style="display:flex; gap:24px; margin-top:14px; font-size:13px; color:#5f6368; align-items:center; flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:24px;height:10px;background:rgba(66,165,245,0.8);border-radius:2px;"></span>Light</span>
+    <span style="display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:24px;height:10px;background:rgba(38,166,154,0.8);border-radius:2px;"></span>REM</span>
+    <span style="display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:24px;height:10px;background:rgba(21,101,192,0.85);border-radius:2px;"></span>Deep</span>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const hours = ['12AM','1AM','2AM','3AM','4AM','5AM','6AM','7AM','8AM','9AM','10AM','11AM','12PM','1PM','2PM','3PM','4PM','5PM','6PM','7PM','8PM','9PM','10PM','11PM'];
+const toMin = arr => arr.map(v => +(v/60).toFixed(1));
+
+const light = toMin([1485.24,1567.29,1650.58,1567.13,1441.44,1426.64,1258.81,1087.52,799.64,547.23,436.42,447.86,381.21,337.87,286.0,127.2,270.51,282.97,233.33,277.97,521.15,894.25,1130.15,1388.84]);
+const rem   = toMin([946.65,1011.89,1101.43,1219.22,1201.79,1183.7,1176.37,956.79,695.58,580.87,263.07,310.44,291.24,193.05,140.84,169.95,79.46,60.2,91.62,70.14,70.14,250.14,426.11,790.45]);
+const deep  = toMin([1195.87,1173.14,1033.83,1010.95,950.74,919.92,751.18,656.57,559.34,335.27,227.2,177.13,258.66,224.93,125.59,158.51,175.3,59.19,96.49,161.08,374.69,689.12,1338.08,1280.51]);
+
+new Chart(document.getElementById('sleepChart'), {
+  type: 'bar',
+  data: {
+    labels: hours,
+    datasets: [
+      { label: 'Light', data: light, backgroundColor: 'rgba(66,165,245,0.8)',  borderWidth: 0 },
+      { label: 'REM',   data: rem,   backgroundColor: 'rgba(38,166,154,0.8)',  borderWidth: 0 },
+      { label: 'Deep',  data: deep,  backgroundColor: 'rgba(21,101,192,0.85)', borderWidth: 0 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: { mode: 'index', callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}m` } }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: { autoSkip: false, maxRotation: 0, callback: (v,i) => i%3===0 ? hours[i] : '', font: { size: 11, family: "'Google Sans',Arial,sans-serif" }, color: '#9aa0a6' },
+        grid: { color: '#f1f3f4' }, border: { color: '#e0e0e0' }
+      },
+      y: {
+        stacked: true,
+        min: 0,
+        max: 60,
+        ticks: { font: { size: 11, family: "'Google Sans',Arial,sans-serif" }, color: '#9aa0a6', callback: v => v+'m' },
+        grid: { color: '#f1f3f4' }, border: { color: '#e0e0e0' },
+        title: { display: true, text: 'Mean sleep duration (minutes)', font: { size: 12, family: "'Google Sans',Arial,sans-serif" }, color: '#9aa0a6' }
+      }
+    }
+  }
+});
+</script>
