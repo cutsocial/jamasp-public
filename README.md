@@ -20,6 +20,9 @@ jamasp-public/
 ```
 
 ---
+## Read paper
+[Read the Paper](https://docs.google.com/document/d/1Z13xEMe-RGqervhmDNtwkO6dxHBnf07L7Zi_4ncNEWQ/edit?usp=sharing)
+---
 
 ## Queries
 
