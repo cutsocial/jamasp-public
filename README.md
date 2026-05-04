@@ -2,7 +2,7 @@
 
 This repository contains analysis code, SQL queries, and anonymized data supporting the following paper:
 
-> Salari Rad, M., & Radmanesh, A. (in preparation). Wearable device data collection from existing device owners via crowdsourcing platforms: A feasibility study using Jamasp. *Behavior Research Methods*.
+> Salari Rad, M., & Radmanesh, A. (in preparation). Wearable device data collection from existing device owners via crowdsourcing platforms: A feasibility study using Jamasp.
 
 **Platform website:** [jamasp.app](https://jamasp.app)  
 **Interactive data explorer:** [jamasp.app/explore](https://jamasp.app/explore)
@@ -62,13 +62,5 @@ If you use these materials, please cite:
 ```
 Salari Rad, M., & Radmanesh, A. (in preparation). Wearable device data 
 collection from existing device owners via crowdsourcing platforms: 
-A feasibility study using Jamasp. Behavior Research Methods.
+A feasibility study using Jamasp.
 ```
-
----
-
-## Contact
-
-For questions about Jamasp or to request early access, contact the authors:  
-- Mostafa Salari Rad — salam955@newschool.edu  
-- Arman Radmanesh — radmanesh@ou.edu
