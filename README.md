@@ -55,6 +55,8 @@ Anonymized aggregate data from the pilot study (N = 41 participants, February 25
 | `data/coverage.csv` | Day-level HR coverage per participant |
 | `data/wear_time_daily.csv` | Daily wear time (hours) per participant |
 
+Interactive figures (heart rate, steps, and sleep stages by hour of day) are available at [cutsocial.github.io/jamasp-public](https://cutsocial.github.io/jamasp-public).
+
 ---
 
 ## Schema
